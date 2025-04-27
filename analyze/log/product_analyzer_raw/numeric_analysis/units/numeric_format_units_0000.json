@@ -1,0 +1,536 @@
+{
+  "energy": [
+    "kcal",
+    "kj"
+  ],
+  "fat": [
+    "g"
+  ],
+  "saturated fat": [
+    "g"
+  ],
+  "carbohydrates": [
+    "g"
+  ],
+  "sugars": [
+    "g"
+  ],
+  "fiber": [
+    "g"
+  ],
+  "proteins": [
+    "g"
+  ],
+  "salt": [
+    "g"
+  ],
+  "vitamin d": [
+    "µg"
+  ],
+  "serving_size": [
+    "BUENO",
+    "Banania",
+    "Bar",
+    "Bars",
+    "Benco",
+    "Biscuit",
+    "Biscuits",
+    "Bjorg",
+    "Bread",
+    "CARDS",
+    "Cake",
+    "Ce",
+    "Cet",
+    "Cette",
+    "Cookie",
+    "Cookies",
+    "Cracker",
+    "Crumpet",
+    "Cup",
+    "Deux",
+    "Environ",
+    "Etat",
+    "FL",
+    "GRAMMES",
+    "Gramm",
+    "Gramme",
+    "Half",
+    "KINDER",
+    "Keks",
+    "L",
+    "Le",
+    "ML",
+    "Millil",
+    "NUTELLA",
+    "Nutella",
+    "OZ",
+    "Oatcake",
+    "One",
+    "PORTION",
+    "POT",
+    "POUR",
+    "Pack",
+    "Per",
+    "Piada",
+    "Portion",
+    "Pot",
+    "Pour",
+    "Quatre",
+    "Slice",
+    "Small",
+    "Square",
+    "St",
+    "Tablette",
+    "Tbsp",
+    "Tranche",
+    "Un",
+    "Une",
+    "Voor",
+    "a",
+    "amande",
+    "apporte",
+    "apr",
+    "assiette",
+    "au",
+    "bag",
+    "bagel",
+    "baguette",
+    "bar",
+    "barquette",
+    "barre",
+    "barres",
+    "batonnet",
+    "bereide",
+    "biscotte",
+    "biscottes",
+    "biscotto",
+    "biscuit",
+    "biscuits",
+    "block",
+    "bo",
+    "boite",
+    "bol",
+    "bols",
+    "bomb",
+    "borcan",
+    "bottel",
+    "bottle",
+    "bouillon",
+    "boulettes",
+    "bouteille",
+    "bowl",
+    "bread",
+    "brique",
+    "burger",
+    "c",
+    "cL",
+    "caf",
+    "cake",
+    "calcium",
+    "can",
+    "canette",
+    "carr",
+    "carreau",
+    "chocolat",
+    "ck",
+    "cl",
+    "conserve",
+    "contient",
+    "cookie",
+    "cookies",
+    "corn",
+    "cr",
+    "cracker",
+    "crackers",
+    "crispbreads",
+    "crumpet",
+    "cube",
+    "cuill",
+    "cuilli",
+    "cup",
+    "d",
+    "de",
+    "demi",
+    "dollop",
+    "donne",
+    "drained",
+    "dreiecke",
+    "e",
+    "eau",
+    "ecrem",
+    "eighth",
+    "emballage",
+    "env",
+    "environ",
+    "es",
+    "et",
+    "feuilles",
+    "fl",
+    "frozen",
+    "g",
+    "galette",
+    "galettes",
+    "gaufres",
+    "gekocht",
+    "gourde",
+    "goutt",
+    "gr",
+    "gram",
+    "granola",
+    "grill",
+    "half",
+    "in",
+    "initial",
+    "knax",
+    "koekjes",
+    "kolmiota",
+    "l",
+    "lait",
+    "lentil",
+    "m",
+    "mL",
+    "madeleine",
+    "merguez",
+    "mignonnette",
+    "milk",
+    "ml",
+    "muffin",
+    "oatcake",
+    "of",
+    "oz",
+    "pack",
+    "package",
+    "packet",
+    "pain",
+    "pains",
+    "pan",
+    "pappadums",
+    "paquet",
+    "par",
+    "paration",
+    "petit",
+    "petite",
+    "petits",
+    "piece",
+    "pieces",
+    "pizza",
+    "poche",
+    "poppadom",
+    "portion",
+    "portions",
+    "pot",
+    "poudre",
+    "pour",
+    "powder",
+    "pr",
+    "prepared",
+    "pretzels",
+    "produit",
+    "raw",
+    "re",
+    "recommand",
+    "res",
+    "rice",
+    "s",
+    "sabl",
+    "sachet",
+    "sachets",
+    "saucisses",
+    "sausages",
+    "semi",
+    "serve",
+    "serving",
+    "servings",
+    "skimmed",
+    "slice",
+    "slices",
+    "small",
+    "soit",
+    "soupe",
+    "spoon",
+    "spoonful",
+    "square",
+    "squares",
+    "stock",
+    "tale",
+    "tartine",
+    "tartines",
+    "tasse",
+    "tasses",
+    "tbsp",
+    "te",
+    "tea",
+    "teaspoons",
+    "teau",
+    "tr",
+    "tranche",
+    "tranches",
+    "trianglar",
+    "triangle",
+    "triangles",
+    "tsp",
+    "twin",
+    "un",
+    "undefined",
+    "une",
+    "ungekocht",
+    "unit",
+    "v",
+    "verre",
+    "wrap",
+    "x"
+  ],
+  "quantity": [
+    "Barres",
+    "Bottle",
+    "Cakes",
+    "Cubes",
+    "E",
+    "Fl",
+    "G",
+    "Gr",
+    "Haway",
+    "Kg",
+    "L",
+    "Litre",
+    "Litros",
+    "Ml",
+    "N",
+    "OZ",
+    "Oz",
+    "Parts",
+    "Poids",
+    "Rice",
+    "Slices",
+    "St",
+    "X",
+    "approx",
+    "barres",
+    "biscottes",
+    "biscuits",
+    "burgers",
+    "cL",
+    "cad",
+    "carr",
+    "ce",
+    "cheur",
+    "ck",
+    "cl",
+    "cr",
+    "crackers",
+    "de",
+    "doubles",
+    "drained",
+    "e",
+    "en",
+    "environ",
+    "fines",
+    "fra",
+    "g",
+    "galettes",
+    "gm",
+    "goutt",
+    "gr",
+    "gram",
+    "grame",
+    "gramme",
+    "grammes",
+    "gramms",
+    "grams",
+    "grs",
+    "individuel",
+    "individuels",
+    "kg",
+    "l",
+    "lb",
+    "lidl",
+    "litre",
+    "litres",
+    "litros",
+    "mL",
+    "mg",
+    "mililitres",
+    "minimum",
+    "ml",
+    "morceaux",
+    "net",
+    "ou",
+    "oz",
+    "pack",
+    "packet",
+    "pan",
+    "paquet",
+    "pas",
+    "pcs",
+    "pes",
+    "pi",
+    "pieces",
+    "pints",
+    "pochons",
+    "poids",
+    "poisson",
+    "portions",
+    "pots",
+    "pour",
+    "pt",
+    "reconstitu",
+    "s",
+    "sachet",
+    "sachets",
+    "servings",
+    "slices",
+    "tablets",
+    "tajadas",
+    "total",
+    "tr",
+    "tranches",
+    "unit",
+    "x"
+  ],
+  "alcohol": [
+    "vol"
+  ],
+  "monounsaturated fat": [
+    "g"
+  ],
+  "polyunsaturated fat": [
+    "g"
+  ],
+  "potassium": [
+    "mg"
+  ],
+  "calcium": [
+    "mg"
+  ],
+  "iodine": [
+    "µg"
+  ],
+  "starch": [
+    "g"
+  ],
+  "vitamin b12": [
+    "µg"
+  ],
+  "phosphorus": [
+    "mg"
+  ],
+  "iron": [
+    "mg"
+  ],
+  "magnesium": [
+    "mg"
+  ],
+  "vitamin e": [
+    "mg"
+  ],
+  "arachidic acid": [
+    "g"
+  ],
+  "alpha-linolenic acid": [
+    "g"
+  ],
+  "arachidonic acid": [
+    "g"
+  ],
+  "vitamin b1": [
+    "mg"
+  ],
+  "omega 3 fat": [
+    "mg"
+  ],
+  "bicarbonate": [
+    "mg"
+  ],
+  "chloride": [
+    "mg"
+  ],
+  "sulphate": [
+    "mg"
+  ],
+  "nitrate": [
+    "g",
+    "mg"
+  ],
+  "polyols": [
+    "g"
+  ],
+  "lactose": [
+    "g"
+  ],
+  "trans fat": [
+    "g"
+  ],
+  "cholesterol": [
+    "mg"
+  ],
+  "added sugars": [
+    "g"
+  ],
+  "vitamin c": [
+    "mg"
+  ],
+  "vitamin b6": [
+    "mg"
+  ],
+  "vitamin b9": [
+    "µg"
+  ],
+  "vitamin b5": [
+    "mg"
+  ],
+  "behenic acid": [
+    "g"
+  ],
+  "biotin": [
+    "µg"
+  ],
+  "vitamin a": [
+    "µg"
+  ],
+  "zinc": [
+    "mg"
+  ],
+  "selenium": [
+    "µg"
+  ],
+  "vitamin b2": [
+    "mg"
+  ],
+  "vitamin b3/pp": [
+    "mg"
+  ],
+  "caffeine": [
+    "mg"
+  ],
+  "silica": [
+    "mg"
+  ],
+  "fluoride": [
+    "mg"
+  ],
+  "omega 9 fat": [
+    "mg"
+  ],
+  "omega 6 fat": [
+    "mg"
+  ],
+  "vitamin k": [
+    "µg"
+  ],
+  "copper": [
+    "mg"
+  ],
+  "manganese": [
+    "mg"
+  ],
+  "fructose": [
+    "g"
+  ],
+  "linoleic acid": [],
+  "oleic acid": [
+    "g"
+  ],
+  "choline": [
+    "g"
+  ]
+}

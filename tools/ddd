@@ -1,0 +1,62 @@
+/Users/GUEGUEN/CascadeProjects/database_creator_saas_habits/.venv/bin/python /Users/GUEGUEN/CascadeProjects/database_creator_saas_habits/scraper/test1.py
+{'allergens': 'Milk, Nuts, Soybeans',
+ 'barcode': '3017620425035',
+ 'brands': 'Ferrero',
+ 'carbon_equiv_distance': None,
+ 'carbon_impact_per_100g': 'zoom_in',
+ 'categories': 'Breakfasts, Spreads, Sweet spreads, fr:Pâtes à tartiner, '
+               'Hazelnut spreads, Chocolate spreads, Cocoa and hazelnuts '
+               'spreads, Petit-déjeuners, Produits à tartiner, Produits à '
+               'tartiner sucrés, Pâtes à tartiner, Pâtes à tartiner au '
+               'chocolat, Pâtes à tartiner aux noisettes, Pâtes à tartiner aux '
+               'noisettes et au cacao',
+ 'conservation_conditions': "A conserver au sec et à l'abri de la chaleur. Ne "
+                            'pas mettre au réfrigérateur.',
+ 'countries_sold': 'Algeria, Belgium, Bulgaria, France, Germany, Guadeloupe, '
+                   'India, Italy, Luxembourg, Martinique, Morocco, Réunion, '
+                   'Spain, Switzerland, Tunisia, United Kingdom, United States',
+ 'customer_service': 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS '
+                     '90058 - 76136 MONT SAINT AIGNAN Cedex',
+ 'green_score_final': None,
+ 'green_score_letter': 'Green-Score D',
+ 'ingredients_structured': [{'ingredient': 'Sugar',
+                             'percentage': '39.3% (estimate)'},
+                            {'ingredient': 'Palm oil',
+                             'percentage': '24.2% (estimate)'},
+                            {'ingredient': 'Hazelnut', 'percentage': '13.0%'},
+                            {'ingredient': 'Skimmed milk powder',
+                             'percentage': '8.7%'},
+                            {'ingredient': 'Fat reduced cocoa',
+                             'percentage': '7.4%'},
+                            {'ingredient': 'Emulsifier',
+                             'percentage': '3.7% (estimate)'},
+                            {'ingredient': 'E322',
+                             'percentage': '3.7% (estimate)'},
+                            {'ingredient': 'Soya lecithin',
+                             'percentage': '3.7% (estimate)'},
+                            {'ingredient': 'Vanillin',
+                             'percentage': '3.7% (estimate)'}],
+ 'ingredients_text': None,
+ 'is_valid': True,
+ 'labels': 'No gluten, No preservatives, No colorings, No hydrogenated fats, '
+           'Triman',
+ 'manufacturing_places': 'France',
+ 'name': 'Nutella – Ferrero – 1\xa0kg',
+ 'nutri_score': 'Nutri-Score E',
+ 'nutrients_100g': {'Carbohydrates': '57.5 g',
+                    'Energy': '2,252 kj(539 kcal)',
+                    'Fat': '30.9 g',
+                    'Fiber': '1 g',
+                    'Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)': '13 '
+                                                                                                                              '%',
+                    'Proteins': '6.3 g',
+                    'Salt': '0.107 g',
+                    'Saturated fat': '10.6 g',
+                    'Sugars': '56.3 g'},
+ 'origin': 'france',
+ 'packaging': 'Composite material, Plastic, Cardboard, Glass, PP 5 - '
+              'Polypropylene, Clear Glass, Non-corrugated cardboard, Paper and '
+              'fibreboard/aluminium, 82 C/PAP, Bocal',
+ 'quantity': '1 kg',
+ 'serving_size': '15 g',
+ 'stores': 'Auchan, E. Leclerc, Carrefour'}

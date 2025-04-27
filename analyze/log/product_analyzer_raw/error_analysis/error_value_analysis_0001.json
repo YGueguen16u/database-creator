@@ -1,0 +1,488 @@
+{
+  "nutri-score e": {
+    "count": 1022,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "green-score e": {
+    "count": 328,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "nutri-score d": {
+    "count": 966,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: e (score: 15/100)": {
+    "count": 7,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: e (score: 25/100)": {
+    "count": 9,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 35/100)": {
+    "count": 115,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 39/100)": {
+    "count": 30,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 43/100)": {
+    "count": 14,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "fat": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "saturated fat": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "carbohydrates": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "sugars": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "fiber": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "proteins": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "salt": {
+    "count": 95,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list analysis)": {
+    "count": 73,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: d (score: 42/100)": {
+    "count": 20,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 33/100)": {
+    "count": 3,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 40/100)": {
+    "count": 25,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "bicarbonate": {
+    "count": 16,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "potassium": {
+    "count": 17,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "chloride": {
+    "count": 15,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "calcium": {
+    "count": 21,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "magnesium": {
+    "count": 19,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "ph": {
+    "count": 16,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "sulphate": {
+    "count": 6,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "nitrate": {
+    "count": 9,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "residu-sec-a-180-c": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: d (score: 34/100)": {
+    "count": 19,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 41/100)": {
+    "count": 30,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: d (score: 44/100)": {
+    "count": 4,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: e (score: 21/100)": {
+    "count": 14,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 32/100)": {
+    "count": 40,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "arachidic acid": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "behenic acid": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "alpha-linolenic acid": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "arachidonic acid": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "biotin": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: e (score: 29/100)": {
+    "count": 5,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 30/100)": {
+    "count": 1,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: e (score: 18/100)": {
+    "count": 11,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 37/100)": {
+    "count": 11,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: e (score: 26/100)": {
+    "count": 6,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 38/100)": {
+    "count": 19,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "sulfate": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "silica": {
+    "count": 4,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "lignoceric acid": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "maltose": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "maltodextrins": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "serum proteins": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: e (score: 28/100)": {
+    "count": 4,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "fluoride": {
+    "count": 7,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "nitrates": {
+    "count": 3,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "sulfates": {
+    "count": 7,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: e (score: 16/100)": {
+    "count": 1,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "iodine": {
+    "count": 2,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "alcohol": {
+    "count": 3,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "extrait-sec-a-180-c": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "average impact of products of the same category: e (score: 19/100)": {
+    "count": 1,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: d (score: 36/100)": {
+    "count": 7,
+    "fields": [
+      "green_score_letter"
+    ]
+  },
+  "average impact of products of the same category: e (score: 27/100)": {
+    "count": 2,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: e (score: 24/100)": {
+    "count": 2,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "average impact of products of the same category: e (score: 23/100)": {
+    "count": 1,
+    "fields": [
+      "nutri_score"
+    ]
+  },
+  "vitamin a": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin d (d3)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin e": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin k": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin c (ascorbic acid)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b1 (thiamin)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b2 (riboflavin)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b3/pp (niacin)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b6 (pyridoxin)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b9 (folic acid)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b12 (cobalamin)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "vitamin b5 (pantothenic acid)": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "iron": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "zinc": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "copper": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "manganese": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "selenium": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  },
+  "molybdenum": {
+    "count": 1,
+    "fields": [
+      "nutrients_100g"
+    ]
+  }
+}

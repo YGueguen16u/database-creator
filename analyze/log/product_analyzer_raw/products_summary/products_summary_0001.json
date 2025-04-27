@@ -1,0 +1,10 @@
+{
+  "total_products_analyzed": 4981,
+  "products_all_valid": 2561,
+  "products_with_errors": 2420,
+  "products_failed_to_analyze": 0,
+  "products_per_folder": {
+    "EAN8": 468,
+    "EAN13": 4513
+  }
+}
