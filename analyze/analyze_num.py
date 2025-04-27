@@ -289,7 +289,7 @@ class NumericFormatAnalyzer:
         for folder in self.target_folders:
             self.keys.extend(self.s3_manager.list(prefix=folder))
 
-        print(f"\n🧹 {len(self.keys)} files found to analyze in OpenFoodFacts transformed folders.")
+        print(f"\n {len(self.keys)} files found to analyze in OpenFoodFacts transformed folders.")
 
         for key in self.keys:
             try:

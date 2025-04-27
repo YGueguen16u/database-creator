@@ -1,3 +1,26 @@
+"""
+ProductAnalyzer
+===============
+
+This module analyzes the basic quality of OpenFoodFacts product files stored in an AWS S3 bucket.
+
+The analyzer checks for each product:
+- The presence and validity of 'name', 'categories', 'nutri_score', and 'green_score_letter' fields.
+- The presence of essential nutrients: Energy, Fat, Carbohydrates, Proteins.
+
+It generates:
+- A list of valid products.
+- A detailed list of products with errors (with explanations).
+- A summary report.
+- A list of files that failed to be analyzed.
+
+Use case:
+---------
+- Validate datasets before further transformations or database insertion.
+- Identify structural issues and incomplete or inconsistent OpenFoodFacts data.
+- Monitor data quality evolution over time.
+"""
+
 import json
 import sys
 import os
@@ -23,13 +46,30 @@ class ProductAnalyzer:
     """
 
     def __init__(self, s3_manager: S3Manager, reference_path: str):
+        """
+        Initialize a ProductAnalyzer instance.
+
+        Args:
+            s3_manager (S3Manager): An S3Manager instance for AWS S3 interactions.
+            reference_path (str): Path to the JSON file containing annotated nutrient metadata.
+
+        Loads the list of expected nutrients and defines required main nutrients for validation.
+        """
         self.s3_manager = s3_manager
         self.annotated_nutrients = self._load_reference(reference_path)
         self.reference_nutrients = set(n["name"] for n in self.annotated_nutrients)
         self.required_main_nutrients = {"energy", "fat", "proteins", "carbohydrates"}
 
     def _load_reference(self, path: str) -> List[Dict[str, str]]:
-        """Load and standardize nutrient names."""
+        """
+        Load and standardize the nutrient names from a reference JSON file.
+
+        Args:
+            path (str): Path to the nutrient reference file.
+
+        Returns:
+            List[Dict[str, str]]: A list of annotated nutrient metadata.
+        """
         with open(path, "r", encoding="utf-8") as f:
             nutrients = json.load(f)
         for nutrient in nutrients:
@@ -37,7 +77,18 @@ class ProductAnalyzer:
         return nutrients
 
     def _standardize_text(self, text: str) -> str:
-        """Standardizes a string: strip, lowercase, fix special characters."""
+        """
+        Standardize a string for consistent comparison.
+
+        Removes special characters, fixes typographical signs, replaces no-break spaces,
+        and applies lowercasing and stripping.
+
+        Args:
+            text (str): The text to standardize.
+
+        Returns:
+            str: The standardized string.
+        """
         if not text:
             return ""
         return (
@@ -52,7 +103,15 @@ class ProductAnalyzer:
         )
 
     def count_products_per_folder(self, keys: List[str]) -> Dict[str, int]:
-        """Count how many products are found in each main folder (EAN8, EAN13, etc.)."""
+        """
+        Count how many product files exist in each main folder (EAN8, EAN13).
+
+        Args:
+            keys (List[str]): List of S3 keys.
+
+        Returns:
+            Dict[str, int]: Mapping of folder name to product count.
+        """
         folder_counts = {}
         for key in keys:
             parts = key.split("/")
@@ -62,7 +121,12 @@ class ProductAnalyzer:
         return folder_counts
 
     def list_all_json_keys(self) -> List[str]:
-        """List all JSON keys from EAN8 and EAN13 folders in S3."""
+        """
+        List all JSON product file keys from 'EAN8' and 'EAN13' folders in the S3 bucket.
+
+        Returns:
+            List[str]: List of JSON file paths.
+        """
         keys = []
         for folder in ["EAN8", "EAN13"]:
             prefix = f"openfoodfacts/{folder}/"
@@ -70,7 +134,15 @@ class ProductAnalyzer:
         return keys
 
     def analyze_product(self, product: dict) -> Dict[str, bool]:
-        """Analyze a single product and return the results of all checks."""
+        """
+        Analyze a single product against all validation criteria.
+
+        Args:
+            product (dict): The product JSON object.
+
+        Returns:
+            Dict[str, bool]: Results of each individual validation check.
+        """
         return {
             "name_present": self._check_name_present(product),
             "categories_present": self._check_categories_present(product),
@@ -80,13 +152,42 @@ class ProductAnalyzer:
         }
 
     def _check_name_present(self, product: dict) -> bool:
+        """
+        Check if the 'name' field is present and non-empty.
+
+        Args:
+            product (dict): Product object.
+
+        Returns:
+            bool: True if valid, False otherwise.
+        """
         return bool(product.get("name"))
 
     def _check_categories_present(self, product: dict) -> bool:
+        """
+        Check if the 'categories' field is present and non-empty.
+
+        Args:
+            product (dict): Product object.
+
+        Returns:
+            bool: True if valid, False otherwise.
+        """
         categories = product.get("categories", "")
         return bool(categories and categories.strip())
 
     def _check_nutri_score_valid(self, product: dict) -> bool:
+        """
+        Validate the 'nutri_score' field value.
+
+        It must be one of 'a', 'b', 'c', 'd', 'e', or null.
+
+        Args:
+            product (dict): Product object.
+
+        Returns:
+            bool: True if valid, False otherwise.
+        """
         valid_scores = {"a", "b", "c", "d", "e"}
         nutri_score = product.get("nutri_score")
         if nutri_score is None:
@@ -94,6 +195,17 @@ class ProductAnalyzer:
         return self._standardize_text(nutri_score) in valid_scores
 
     def _check_green_score_valid(self, product: dict) -> bool:
+        """
+        Validate the 'green_score_letter' field format.
+
+        It must start with "green-score" and end with a letter 'a' to 'e', or be null.
+
+        Args:
+            product (dict): Product object.
+
+        Returns:
+            bool: True if valid, False otherwise.
+        """
         green_score = product.get("green_score_letter")
         if green_score is None:
             return True
@@ -101,13 +213,31 @@ class ProductAnalyzer:
         return standardized.startswith("green-score ") and standardized[-1] in {"a", "b", "c", "d", "e"}
 
     def _check_main_nutrients_present(self, product: dict) -> bool:
+        """
+        Check if the product contains all the main required nutrients (energy, fat, proteins, carbohydrates).
+
+        Args:
+            product (dict): Product object.
+
+        Returns:
+            bool: True if all main nutrients are present, False otherwise.
+        """
         nutrients = product.get("nutrients_100g", {})
         available_nutrients = set(self._standardize_text(k) for k in nutrients.keys())
         valid_available = {nutrient for nutrient in available_nutrients if nutrient in self.reference_nutrients}
         return self.required_main_nutrients.issubset(valid_available)
 
     def _get_error_detail(self, field: str, product: dict) -> Dict[str, str]:
-        """Return a detailed error object with explanation, value found, and field category."""
+        """
+        Generate a detailed error message for a failed validation check.
+
+        Args:
+            field (str): The field that failed validation.
+            product (dict): The product object.
+
+        Returns:
+            Dict[str, str]: A structured error description including error message, value found, and field name.
+        """
         if field == "name_present":
             return {
                 "error": "Missing or empty 'name' field.",
@@ -150,10 +280,13 @@ class ProductAnalyzer:
 
     def analyze_all_products(self) -> Dict[str, Dict[str, bool]]:
         """
-        Analyze all products in the S3 bucket and save results in different files.
+        Analyze all products stored in the S3 bucket.
+
+        Performs the validation checks, separates valid and erroneous products,
+        and saves detailed analysis reports.
 
         Returns:
-            Dict[str, Dict[str, bool]]: Full analysis results.
+            Dict[str, Dict[str, bool]]: Full analysis results by product.
         """
         keys = self.list_all_json_keys()
         folder_counts = self.count_products_per_folder(keys)
@@ -189,7 +322,15 @@ class ProductAnalyzer:
         return results
 
     def _get_next_versioned_filename(self, path: str) -> str:
-        """If file exists, increment version number with 4-digit padding."""
+        """
+        Generate a versioned filename to avoid overwriting previous outputs.
+
+        Args:
+            path (str): Base path.
+
+        Returns:
+            str: The next available versioned filename.
+        """
         base, ext = os.path.splitext(path)
         counter = 0
         new_path = f"{base}_{counter:04d}{ext}"
@@ -200,7 +341,16 @@ class ProductAnalyzer:
 
     def _save_results(self, valids: Dict[str, dict], errors: Dict[str, dict], all_results: Dict[str, dict],
                       failed_files: List[str], folder_counts: Dict[str, int]):
-        """Save analysis results into separate JSON files with versioning, organized by folder."""
+        """
+        Save analysis results (valid, error, summary, failed files) into separate JSON files with versioning.
+
+        Args:
+            valids (Dict[str, dict]): Products passing all checks.
+            errors (Dict[str, dict]): Products failing at least one check.
+            all_results (Dict[str, dict]): Full validation results.
+            failed_files (List[str]): Files that could not be analyzed.
+            folder_counts (Dict[str, int]): Products count per folder (EAN8/EAN13).
+        """
         base_path = os.path.dirname(__file__)
         output_base_dir = os.path.join(base_path, "log", "product_analyzer_raw")
 
@@ -248,7 +398,7 @@ class ProductAnalyzer:
             with open(failed_path, "w", encoding="utf-8") as f:
                 json.dump(failed_files, f, indent=2, ensure_ascii=False)
 
-        # 🖨️ Summary of saved files
+        # Summary of saved files
         print(f"\n✅ Results saved:")
         print(f" - {valid_path}")
         print(f" - {errors_path}")

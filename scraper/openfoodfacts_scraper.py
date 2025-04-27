@@ -1,17 +1,87 @@
+"""
+OpenFoodFacts HTML Scraper
+===========================
+
+This module provides two main functions:
+- scrape_food: Scrapes detailed food product information for a single barcode.
+- scrape_multiple_foods: Scrapes multiple products in sequence with optional verbosity.
+
+Features:
+---------
+- Fetches the OpenFoodFacts HTML page for a given barcode.
+- Extracts basic product info (name, brands, categories, country, etc.).
+- Extracts structured nutritional information per 100g.
+- Dumps HTML pages for debugging (both successful and invalid scrapes).
+- Detects invalid products (missing name or nutrition facts).
+- Handles scraping errors gracefully.
+- Supports scraping multiple products with controlled sleep between requests.
+
+Requirements:
+-------------
+- requests
+- BeautifulSoup4
+- (Optionally) dotenv for environment management.
+
+Author:
+    [Your Name or Organization]
+
+Date:
+    [YYYY-MM-DD]
+"""
+
 import os
 import requests
 from bs4 import BeautifulSoup
 import time
 
 def scrape_food(barcode: str, verbose: bool = False):
+    """
+    Scrape detailed information for a single food product from OpenFoodFacts.
+
+    Args:
+        barcode (str): The barcode (EAN-8 or EAN-13) of the product.
+        verbose (bool): If True, dumps the fetched HTML to "debug_html" folder.
+
+    Returns:
+        dict: A dictionary containing product information:
+            - barcode
+            - name
+            - brands
+            - categories
+            - countries_sold
+            - nutri_score
+            - green_score_letter
+            - green_score_final
+            - carbon_impact_per_100g
+            - carbon_equiv_distance
+            - serving_size
+            - quantity
+            - packaging
+            - labels
+            - origin
+            - manufacturing_places
+            - stores
+            - allergens
+            - ingredients_text
+            - ingredients_structured (list of ingredients with % if available)
+            - conservation_conditions
+            - customer_service
+            - nutrients_100g (dict of nutrients and their amounts)
+            - is_valid (bool: True if minimum valid fields found)
+
+    Notes:
+        - Dumps the HTML page under "debug_html/" if verbose is enabled.
+        - Dumps error HTML if scraping fails or the product is invalid.
+        - If an error occurs, returns a minimal dict with {"barcode", "error", "is_valid": False}.
+    """
     try:
         url = f"https://world.openfoodfacts.org/product/{barcode}"
         response = requests.get(url)
 
-        # ⚫⃝ Créer le dossier debug si nécessaire
+        # Créer le dossier debug si nécessaire
         os.makedirs("debug_html", exist_ok=True)
 
-        # 🔍 Dump HTML si verbose activé dès le début
+        # Dump HTML si verbose activé dès le début
         if verbose:
             with open(f"debug_html/debug_{barcode}.html", "w", encoding="utf-8") as f:
                 f.write(response.text)
@@ -153,10 +223,24 @@ def scrape_food(barcode: str, verbose: bool = False):
 
 
 def scrape_multiple_foods(barcodes: list, verbose: bool = False) -> dict:
+    """
+    Scrape multiple food products sequentially.
+
+    Args:
+        barcodes (list): List of barcode strings to scrape.
+        verbose (bool): If True, enable detailed scraping output and save HTML files.
+
+    Returns:
+        dict: Mapping of barcode -> product data dictionary.
+
+    Notes:
+        - Automatically sleeps 1 second between each request to avoid server overload.
+        - Calls scrape_food() internally for each barcode.
+    """
     all_data = {}
     for i, barcode in enumerate(barcodes, start=1):
         if verbose:
-            print(f"\n🔎 Scraping {i}/{len(barcodes)} – Barcode: {barcode}")
+            print(f"\n Scraping {i}/{len(barcodes)} – Barcode: {barcode}")
         data = scrape_food(barcode, verbose=verbose)
         all_data[barcode] = data
         time.sleep(1)

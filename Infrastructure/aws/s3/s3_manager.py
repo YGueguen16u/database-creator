@@ -1,5 +1,26 @@
 # Infrastructure/aws/s3/s3_manager.py
 
+"""
+S3Manager
+=========
+
+This module provides a lightweight wrapper class (S3Manager) for interacting with AWS S3 buckets.
+
+Features:
+---------
+- Upload files to S3.
+- Download files from S3.
+- List all files under a prefix (handles pagination).
+- Upload JSON objects.
+- Delete files.
+- Automatic loading of AWS credentials and bucket configuration from the environment.
+
+Use case:
+---------
+Facilitates common S3 operations without rewriting boilerplate boto3 code.
+Designed for projects working with OpenFoodFacts or similar datasets.
+"""
+
 import json
 
 import boto3
@@ -17,12 +38,16 @@ class S3Manager:
 
     def __init__(self):
         """
-        Initializes the S3Manager with AWS credentials and bucket info
-        loaded from the environment (via get_s3_config).
+        Initialize the S3Manager.
+
+        Loads AWS credentials (access key, secret key, region) and bucket name
+        automatically using the configuration from `Infrastructure.aws.s3.config.get_s3_config()`.
+
+        Also initializes a boto3 S3 client.
         """
         config = get_s3_config()
         self.bucket = config["bucket"]
-        print(f"🪣 Loaded bucket: {self.bucket} (type: {type(self.bucket)})")  # 👈 Debug ici
+        print(f"Loaded bucket: {self.bucket} (type: {type(self.bucket)})")  # 👈 Debug ici
         self.s3 = boto3.client(
             "s3",
             aws_access_key_id=config["access_key"],
@@ -32,11 +57,11 @@ class S3Manager:
 
     def upload(self, local_path: str, s3_key: str):
         """
-        Uploads a local file to the S3 bucket.
+        Upload a local file to the configured S3 bucket.
 
         Args:
-            local_path (str): Path to the file on the local filesystem.
-            s3_key (str): Path (key) where the file should be stored in S3.
+            local_path (str): The local filesystem path of the file to upload.
+            s3_key (str): The S3 destination key (path inside the bucket).
 
         Returns:
             None
@@ -51,11 +76,11 @@ class S3Manager:
 
     def download(self, s3_key: str, local_path: str):
         """
-        Downloads a file from the S3 bucket to the local filesystem.
+        Download a file from S3 to the local filesystem.
 
         Args:
-            s3_key (str): The path (key) of the file in S3.
-            local_path (str): Path to store the downloaded file locally.
+            s3_key (str): The S3 key (path) of the file to download.
+            local_path (str): The local destination path where the file will be saved.
 
         Returns:
             None
@@ -68,14 +93,15 @@ class S3Manager:
 
     def list(self, prefix: str = ""):
         """
-        Lists all files (keys) in the S3 bucket under the given prefix,
-        handling AWS pagination (max 1000 per API call).
+        List all file keys under a given prefix in the S3 bucket.
+
+        Handles AWS pagination automatically (S3 returns at most 1000 keys per call).
 
         Args:
-            prefix (str): (Optional) The S3 folder path to filter files.
+            prefix (str, optional): The prefix (folder path) to list files from. Defaults to "" (root).
 
         Returns:
-            List[str]: A list of keys (file paths) in the bucket.
+            List[str]: A list of S3 keys (file paths).
         """
         try:
             files = []
@@ -102,7 +128,7 @@ class S3Manager:
                 else:
                     break
 
-            print(f"📁 {len(files)} files found under s3://{self.bucket}/{prefix}")
+            print(f"{len(files)} files found under s3://{self.bucket}/{prefix}")
             return files
 
         except Exception as e:
@@ -110,7 +136,17 @@ class S3Manager:
             return []
 
     def upload_json(self, bucket: str, key: str, data: dict):
-        """Upload a JSON object to S3."""
+        """
+        Upload a JSON-serializable Python dictionary to S3.
+
+        Args:
+            bucket (str): The S3 bucket where the object should be uploaded.
+            key (str): The S3 key (path) under which to store the object.
+            data (dict): The JSON-serializable Python dictionary to upload.
+
+        Returns:
+            None
+        """
         self.s3.put_object(
             Bucket=bucket,
             Key=key,
@@ -120,16 +156,16 @@ class S3Manager:
 
     def delete(self, s3_key: str):
         """
-        Deletes a file from the S3 bucket.
+        Delete a file from the S3 bucket.
 
         Args:
-            s3_key (str): Path (key) of the file to delete in S3.
+            s3_key (str): The S3 key (path) of the file to delete.
 
         Returns:
             None
         """
         try:
             self.s3.delete_object(Bucket=self.bucket, Key=s3_key)
-            print(f"🗑️ Deleted: s3://{self.bucket}/{s3_key}")
+            print(f"Deleted: s3://{self.bucket}/{s3_key}")
         except ClientError as e:
             print(f"❌ Error deleting file: {e}")
